@@ -1,0 +1,110 @@
+table dim_calendar
+	lineageTag: 034af195-8a85-48f6-846f-63f752a74805
+
+	column date_id
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a1e46af2-9f8a-45a5-b5eb-1d7418e31cf9
+		summarizeBy: none
+		sourceColumn: date_id
+
+		variation Variazione
+			isDefault
+			relationship: 58c731ef-20f0-425d-8e1f-a97f82764328
+			defaultHierarchy: LocalDateTable_b4c2057d-6cfc-4f87-8e54-91d6682795a6.'Gerarchia data'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: a36fff0d-83a8-4de5-bbc3-f41ca7e20bec
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: 77411026-590f-40d6-a17e-32df7845f723
+		summarizeBy: sum
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		lineageTag: 5a31da44-d282-4800-8100-766328cdfacb
+		summarizeBy: none
+		sourceColumn: month_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column day
+		dataType: int64
+		formatString: 0
+		lineageTag: cb5f39a4-532a-4034-8b4a-0175090967d4
+		summarizeBy: sum
+		sourceColumn: day
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_of_week
+		dataType: string
+		lineageTag: cdc7ece6-652d-4855-9c75-30a8a76b913d
+		summarizeBy: none
+		sourceColumn: day_of_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_weekend
+		dataType: int64
+		formatString: 0
+		lineageTag: d0cceb63-bdf2-4a43-84f0-7601dab05ebc
+		summarizeBy: sum
+		sourceColumn: is_weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 633d9611-2af2-4495-87f5-2db3322482d3
+		summarizeBy: sum
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column date =
+			DATE(
+			    'dim_calendar'[year],
+			    'dim_calendar'[month],
+			    'dim_calendar'[day]
+			)
+		formatString: General Date
+		lineageTag: 05b241af-62e4-4239-bc02-039f05d067d3
+		summarizeBy: none
+
+		variation Variazione
+			isDefault
+			relationship: 15701a51-42d3-43d6-b092-a844abf4f8ce
+			defaultHierarchy: LocalDateTable_e5b3eab3-eb37-4702-9a46-750d71d5e897.'Gerarchia data'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_calendar = m
+		mode: import
+		source =
+				let
+				    Origine = MySQLDQ.Contents("localhost", "cinedata"),
+				    dim_calendar_Table = Origine{[Name="dim_calendar",Kind="Table"]}[Data]
+				in
+				    dim_calendar_Table
+
+	annotation PBI_NavigationStepName = Navigazione
+
+	annotation PBI_ResultType = Table
+

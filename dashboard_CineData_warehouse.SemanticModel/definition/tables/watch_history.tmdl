@@ -1,0 +1,78 @@
+table watch_history
+	lineageTag: 0c40d1f7-a18b-4efd-a401-aa2f57f04597
+
+	column watch_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a727de1f-cf60-46b5-887f-c362677e7693
+		summarizeBy: sum
+		sourceColumn: watch_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column user_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ef77a3be-500a-4d98-9ee1-99d2c75d06e1
+		summarizeBy: none
+		sourceColumn: user_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column movie_id
+		dataType: int64
+		formatString: 0
+		lineageTag: dd9b9c3f-595d-46f1-ba07-d16711eff8fa
+		summarizeBy: none
+		sourceColumn: movie_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column watch_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8d099a2e-e2b4-40f4-b3a2-5af5b0ef3e74
+		summarizeBy: none
+		sourceColumn: watch_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column minutes_watched
+		dataType: int64
+		formatString: 0
+		lineageTag: 35503163-b4c8-4ed0-8221-65ffa59820fe
+		summarizeBy: sum
+		sourceColumn: minutes_watched
+
+		annotation SummarizationSetBy = Automatic
+
+	column completed
+		dataType: int64
+		formatString: 0
+		lineageTag: 6da38847-4034-4d05-870d-6d663b7cb18b
+		summarizeBy: sum
+		sourceColumn: completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column device_id
+		dataType: int64
+		formatString: 0
+		lineageTag: cebc9e22-ee18-4d6c-a838-f01a0736d8d4
+		summarizeBy: none
+		sourceColumn: device_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition watch_history = m
+		mode: import
+		source =
+				let
+				    Origine = MySQLDQ.Contents("localhost", null),
+				    cinedata_Database = Origine{[Name="cinedata",Kind="Database"]}[Data],
+				    watch_history_Table = cinedata_Database{[Name="watch_history",Kind="Table"]}[Data]
+				in
+				    watch_history_Table
+
+	annotation PBI_ResultType = Table
+

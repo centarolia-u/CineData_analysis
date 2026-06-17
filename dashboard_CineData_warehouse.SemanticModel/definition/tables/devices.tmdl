@@ -1,0 +1,37 @@
+table devices
+	lineageTag: 79090a8d-409a-444d-a972-53cc99305729
+
+	column device_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 37df7a3c-96be-4c69-9bfb-d53b504e9dba
+		summarizeBy: none
+		sourceColumn: device_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column device_name
+		dataType: string
+		lineageTag: d7bb6069-e58a-46bb-ae29-ed958c5f9ee6
+		summarizeBy: none
+		sourceColumn: device_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column platform_type
+		dataType: string
+		lineageTag: 717c321a-f4e8-430e-ab45-f046897790d2
+		summarizeBy: none
+		sourceColumn: platform_type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition devices = m
+		mode: import
+		source =
+				let
+				    Origine = MySQLDQ.Contents("localhost", "cinedata"),
+				    devices_Table = Origine{[Name="devices",Kind="Table"]}[Data]
+				in
+				    devices_Table
+

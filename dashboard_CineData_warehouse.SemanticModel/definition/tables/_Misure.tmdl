@@ -1,0 +1,82 @@
+table _Misure
+	lineageTag: ba6df258-1bd8-43f8-8404-c77dd84829cb
+
+	measure 'Totale Utenti' = COUNTROWS('users')
+		formatString: 0
+		lineageTag: bec4519d-94dd-445b-b26e-35521d6b8bcb
+
+	measure 'Utenti Attivi' = CALCULATE(COUNTROWS('users'), 'subscriptions'[status] = "Active")
+		formatString: 0
+		lineageTag: 2cc4e429-32b9-4c06-b1a2-52b2e86f81a6
+
+	measure 'MRR Totale' =
+			
+			CALCULATE(
+			    SUMX(
+			        FILTER(
+			            'subscriptions',
+			            'subscriptions'[status] = "Active"
+			        ),
+			        RELATED('subscription_plans'[monthly_price])
+			    ),
+			    TREATAS(
+			        VALUES('dim_calendar'[date]),
+			        'subscriptions'[start_date]
+			    )
+			)
+		formatString: #,0.00
+		lineageTag: 98666494-0580-455f-9d39-65a9a5a865ca
+
+	measure 'Ore di Visione' = SUM('watch_history'[minutes_watched]) / 60
+		lineageTag: 58321d07-938b-47d1-af38-3741e469198a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Rating Medio' = AVERAGE('reviews'[rating])
+		lineageTag: c1213d84-3471-4bb1-8edd-20ac88ac61ad
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Percentuale Completamento' = DIVIDE(SUM('watch_history'[completed]), COUNTROWS('watch_history'), 0)
+		lineageTag: ec5c00db-88af-45a3-9e11-9aac8f82ba5d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Churn Rate' =
+			
+			VAR UtentiPersi = CALCULATE(COUNTROWS('subscriptions'), 'subscriptions'[status] = "Cancelled" || 'subscriptions'[status] = "Expired")
+			RETURN DIVIDE(UtentiPersi, [Totale Utenti], 0)
+		lineageTag: 01381cfa-34df-439c-9403-b8d9bafb3df2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Nuovi Abbonati' = CALCULATE(COUNT(subscriptions[sub_id]), USERELATIONSHIP(subscriptions[start_date], dim_calendar[date_id]))
+		formatString: 0
+		lineageTag: 4290d71f-5e96-43f1-8eed-dbb1ab5819a6
+
+	measure 'Valore Dinamico' =
+			
+			SWITCH(
+			    SELECTEDVALUE('_Misuresupporto'[ID]),
+			    1, [MRR Totale],
+			    2, [Utenti Attivi],
+			    3, [Ore di Visione],
+			    4, [Churn Rate],
+			    BLANK()
+			)
+		lineageTag: 6235f30b-21bd-4189-91e0-ab4733909efb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition _Misure = m
+		mode: import
+		source =
+				let
+				    Origine = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Colonna1 = _t]),
+				    #"Modificato tipo" = Table.TransformColumnTypes(Origine,{{"Colonna1", type text}}),
+				    #"Rimosse colonne" = Table.RemoveColumns(#"Modificato tipo",{"Colonna1"})
+				in
+				    #"Rimosse colonne"
+
+	annotation PBI_ResultType = Table
+

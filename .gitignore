@@ -1,0 +1,16 @@
+# File generati in automatico da Power BI
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Ignora i classici file binari di Power BI (usiamo il .pbip)
+*.pbix
+
+# Cache di Python e ambienti virtuali
+__pycache__/
+*.pyc
+.venv/
+env/
+
+# (Opzionale) Escludi file di dati grezzi se sono pesanti
+*.csv
+*.xlsx

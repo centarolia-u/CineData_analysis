@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "dashboard_CineData_warehouse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4d2393ad-2956-473d-bba1-ceaf65b1ba9a"
+  }
+}

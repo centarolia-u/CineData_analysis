@@ -1,0 +1,35 @@
+model Model
+	culture: it-IT
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: it-IT
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["vw_user_engagement","genres","movie_genres","movies","subscription_plans","subscriptions","users","watch_history","_Misure","devices","reviews","dim_calendar","_Misuresupporto"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table vw_user_engagement
+ref table genres
+ref table movie_genres
+ref table movies
+ref table subscription_plans
+ref table subscriptions
+ref table DateTableTemplate_b8e68363-6362-4151-a198-3fa1f3a881ad
+ref table users
+ref table LocalDateTable_b2328ce3-1f79-40e4-a658-401fd7060dcd
+ref table watch_history
+ref table _Misure
+ref table devices
+ref table reviews
+ref table LocalDateTable_6f8fc69e-bda2-45d7-bfaf-83031b57cc55
+ref table dim_calendar
+ref table LocalDateTable_b4c2057d-6cfc-4f87-8e54-91d6682795a6
+ref table _Misuresupporto
+ref table LocalDateTable_e5b3eab3-eb37-4702-9a46-750d71d5e897
+
+ref cultureInfo it-IT
+

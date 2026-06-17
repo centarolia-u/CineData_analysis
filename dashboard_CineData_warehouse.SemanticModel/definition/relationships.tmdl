@@ -1,0 +1,79 @@
+relationship 9236f3c2-6f61-47dd-83c9-cc835556f33c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: users.registration_date
+	toColumn: LocalDateTable_b2328ce3-1f79-40e4-a658-401fd7060dcd.Date
+
+relationship db7368a4-811f-4385-b8ad-8fbbf248b7c5
+	fromColumn: movie_genres.genre_id
+	toColumn: genres.genre_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 3396eca8-7f93-443d-9353-f946a559140c
+	fromColumn: movie_genres.movie_id
+	toColumn: movies.movie_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship a647942f-737f-4600-99ca-73063f2bcd27
+	fromColumn: subscriptions.plan_id
+	toColumn: subscription_plans.plan_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 8b844d21-8feb-4a25-82c3-21083e24d288
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: subscriptions.user_id
+	toColumn: users.user_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 052ccc8c-bfe0-47ef-9893-6b1e078c1ae1
+	fromColumn: watch_history.movie_id
+	toColumn: movies.movie_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 23d98dc7-1cd8-4d48-8caa-c2112a600f80
+	fromColumn: watch_history.user_id
+	toColumn: users.user_id
+
+	annotation PBI_IsFromSource = FS
+
+relationship f34c8a9f-7733-4cb8-b033-1f118dad6082
+	joinOnDateBehavior: datePartOnly
+	fromColumn: reviews.review_date
+	toColumn: LocalDateTable_6f8fc69e-bda2-45d7-bfaf-83031b57cc55.Date
+
+relationship 58c731ef-20f0-425d-8e1f-a97f82764328
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_calendar.date_id
+	toColumn: LocalDateTable_b4c2057d-6cfc-4f87-8e54-91d6682795a6.Date
+
+relationship 856b48fb-17e9-efc4-7b52-9437e346c968
+	fromColumn: watch_history.watch_date
+	toColumn: dim_calendar.date_id
+
+relationship 9b816716-021f-a1e3-bc4c-2f2a85caf245
+	fromColumn: watch_history.device_id
+	toColumn: devices.device_id
+
+relationship 584945a7-0957-cae8-0f0d-2c3ddd9beaea
+	fromColumn: reviews.user_id
+	toColumn: users.user_id
+
+relationship 0914d37b-ddd8-23af-4b2a-75953f350c10
+	fromColumn: reviews.movie_id
+	toColumn: movies.movie_id
+
+relationship fc0690fd-15eb-0cef-9652-4d84be9c6c03
+	isActive: false
+	fromColumn: subscriptions.start_date
+	toColumn: dim_calendar.date_id
+
+relationship 15701a51-42d3-43d6-b092-a844abf4f8ce
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_calendar.date
+	toColumn: LocalDateTable_e5b3eab3-eb37-4702-9a46-750d71d5e897.Date
+

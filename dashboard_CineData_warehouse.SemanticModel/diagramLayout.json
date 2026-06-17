@@ -1,0 +1,191 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 520.44496350958252,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1755.533536318575,
+            "y": 28.282789054047285
+          },
+          "nodeIndex": "genres",
+          "nodeLineageTag": "fe996029-8fef-412f-a1c8-66f3010bccaa",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1471.3122480319576,
+            "y": 35.37063851126976
+          },
+          "nodeIndex": "movie_genres",
+          "nodeLineageTag": "35be8036-f6c2-4835-8092-e9e6445bc38e",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1187.0390454462558,
+            "y": -10.741113466678712
+          },
+          "nodeIndex": "movies",
+          "nodeLineageTag": "b4d0765c-94c9-4229-8e17-13ef92cceef0",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 7.9945518736554959
+          },
+          "nodeIndex": "subscription_plans",
+          "nodeLineageTag": "71d7ef21-e4e3-468a-b08e-d440985b1e18",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 334.23436188054779,
+            "y": -20.356194515054938
+          },
+          "nodeIndex": "subscriptions",
+          "nodeLineageTag": "5a10b21e-718c-49b9-8a28-69d7e3c72c23",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 618.49642918696281,
+            "y": -20.917822011268981
+          },
+          "nodeIndex": "users",
+          "nodeLineageTag": "404f567b-fa43-4ce5-a339-42cc8df2d168",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1989.533536318575,
+            "y": 25
+          },
+          "nodeIndex": "vw_user_engagement",
+          "nodeLineageTag": "d539b3db-3906-4306-ac89-e6a9c2fb6ab7",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 902.77364130779949,
+            "y": -5.0821779887310328
+          },
+          "nodeIndex": "watch_history",
+          "nodeLineageTag": "0c40d1f7-a18b-4efd-a401-aa2f57f04597",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1371.1779019373716,
+            "y": 320.74848302714531
+          },
+          "nodeIndex": "_Misure",
+          "nodeLineageTag": "ba6df258-1bd8-43f8-8404-c77dd84829cb",
+          "size": {
+            "height": 457.36068021366441,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 697.53353631857487,
+            "y": 273.18113322785683
+          },
+          "nodeIndex": "devices",
+          "nodeLineageTag": "79090a8d-409a-444d-a972-53cc99305729",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 555.9779807630191,
+            "y": 496.51446656119009
+          },
+          "nodeIndex": "dim_calendar",
+          "nodeLineageTag": "034af195-8a85-48f6-846f-63f752a74805",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 1077.7557585407972,
+            "y": 270.51446656119003
+          },
+          "nodeIndex": "reviews",
+          "nodeLineageTag": "776d75d5-44dc-41be-b0c0-ebdfb234c703",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 1674.2002029852415,
+            "y": 507.38281095289631
+          },
+          "nodeIndex": "_Misuresupporto",
+          "nodeLineageTag": "c4e10dc1-f64c-420c-85c6-f1c0210f527a",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Tutte le tabelle",
+      "zoomValue": 88.578050000000047,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Tutte le tabelle",
+  "defaultDiagram": "Tutte le tabelle"
+}
