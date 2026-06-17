@@ -1,6 +1,9 @@
 CineData ANALYSIS PIPELINE
 
 Executive Overview:
+
+![Anteprima Dashboard](Overview.png)
+
 This repository presents an end-to-end data pipeline built for a fictional streaming video-on-demand (SVOD) platform called CineData. It uses Python to construct, manage, and populate a MySQL relational database, and Microsoft Power BI for advanced data modelling, visualisation, and dashboarding. This project demonstrates skills in synthetic data generation, ETL (Extract, Transform, Load) processes, relational database design, data quality auditing, and business intelligence reporting.
 The dashboard is split into 4 distinct areas: Executive Overview, Content & Engagement, User Sentiment, and Retention & Subscription Plan.
 
