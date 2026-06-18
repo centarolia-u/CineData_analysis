@@ -45,13 +45,13 @@ How to Run the Project:
 # 1. Ensure MySQL is running locally and update the connection configurations in the Python scripts (username/password).
 
 # 2. Run the initialisation script
-Python creazione_data.py
+creazione_data.py
 
 # 3. Populate the initial dataset
-python popolamento_data.py
+popolamento_data.py
 
 # 4. Apply schema updates and advanced data generation
-Python aggiornamento_data_ottimizzato.py
-python popolamento_avanzato_pro.py
+aggiornamento_data_ottimizzato.py
+popolamento_avanzato_pro.py
 
 # 5. Open the CineData_Dashboard.pbip file in Power BI Desktop and refresh the data.
