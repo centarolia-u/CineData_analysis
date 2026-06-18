@@ -1,6 +1,9 @@
 CineData ANALYSIS PIPELINE
 
 Executive Overview:
+
+![Anteprima Dashboard](Overview.png)
+
 This repository presents an end-to-end data pipeline built for a fictional streaming video-on-demand (SVOD) platform called CineData. It uses Python to construct, manage, and populate a MySQL relational database, and Microsoft Power BI for advanced data modelling, visualisation, and dashboarding. This project demonstrates skills in synthetic data generation, ETL (Extract, Transform, Load) processes, relational database design, data quality auditing, and business intelligence reporting.
 The dashboard is split into 4 distinct areas: Executive Overview, Content & Engagement, User Sentiment, and Retention & Subscription Plan.
 
@@ -42,13 +45,13 @@ How to Run the Project:
 # 1. Ensure MySQL is running locally and update the connection configurations in the Python scripts (username/password).
 
 # 2. Run the initialisation script
-Python creazione_data.py
+creazione_data.py
 
 # 3. Populate the initial dataset
-python popolamento_data.py
+popolamento_data.py
 
 # 4. Apply schema updates and advanced data generation
-Python aggiornamento_data_ottimizzato.py
-python popolamento_avanzato_pro.py
+aggiornamento_data_ottimizzato.py
+popolamento_avanzato_pro.py
 
 # 5. Open the CineData_Dashboard.pbip file in Power BI Desktop and refresh the data.
